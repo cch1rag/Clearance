@@ -2,9 +2,47 @@ import Cocoa
 import WebKit
 
 struct DownloadHandler {
-    // Called by WebViewController when the saveDB script message arrives.
-    // Full NSSavePanel implementation added in Phase 3.
+    /// Receives a saveDB message from the WebView, decodes the base64 payload,
+    /// and presents an NSSavePanel so the user can choose where to write the file.
     static func save(message: WKScriptMessage, in window: NSWindow?) {
-        // Phase 3
+        guard
+            let body = message.body as? [String: Any],
+            let b64  = body["data"]     as? String,
+            let name = body["filename"] as? String,
+            let data = Data(base64Encoded: b64)
+        else {
+            return
+        }
+
+        let panel = NSSavePanel()
+        panel.nameFieldStringValue = name
+        panel.allowedContentTypes   = [.init(filenameExtension: "db")!]
+        panel.canCreateDirectories  = true
+
+        let run: (NSSavePanel) -> Void = { p in
+            p.begin { response in
+                guard response == .OK, let url = p.url else { return }
+                do {
+                    try data.write(to: url, options: .atomic)
+                } catch {
+                    let alert = NSAlert(error: error)
+                    alert.runModal()
+                }
+            }
+        }
+
+        if let window {
+            panel.beginSheet(window) { response in
+                guard response == .OK, let url = panel.url else { return }
+                do {
+                    try data.write(to: url, options: .atomic)
+                } catch {
+                    let alert = NSAlert(error: error)
+                    alert.runModal()
+                }
+            }
+        } else {
+            run(panel)
+        }
     }
 }

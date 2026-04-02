@@ -172,11 +172,11 @@ Also add handleFileFromNative() to the HTML for use by Phase 5 (Cmd+O):
     }
 
 Audit checklist:
-- [ ] Load a real UserTCC.db, make at least one edit, click "Apply & Download"
-- [ ] NSSavePanel appears (not a browser download bar)
-- [ ] Saved .db opens in TablePlus and reflects the edited auth_value
-- [ ] Original ~/Desktop/UserTCC.db is unchanged after the operation
-- [ ] Tested in browser directly (open HTML in Safari): fallback <a> download works
+- [x] Load a real UserTCC.db, make at least one edit, click "Apply & Download"
+- [x] NSSavePanel appears (not a browser download bar)
+- [x] Saved .db opens in TablePlus and reflects the edited auth_value
+- [x] Original ~/Desktop/UserTCC.db is unchanged after the operation
+- [x] Tested in browser directly (open HTML in Safari): fallback <a> download works
 
 ---
 
