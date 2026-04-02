@@ -29,8 +29,10 @@ targets:
         excludes:
           - Resources/**
           - Info.plist
-    resources:
-      - path: Clearance/Resources
+      - path: Clearance/Resources/Assets.xcassets
+        buildPhase: resources
+      - path: Clearance/Resources/tcc_audit_app.html
+        buildPhase: resources
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: in.lucidlabs.clearance
