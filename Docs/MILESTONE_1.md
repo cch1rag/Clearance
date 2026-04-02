@@ -190,4 +190,4 @@ the last PR is merged and the app passes a full end-to-end test:
   → NSSavePanel appears → save file → open saved file in TablePlus
   → confirm auth_value reflects the edit → confirm original file unchanged
 
-Status: [ ] Complete
+Status: [x] Complete
