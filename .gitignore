@@ -60,3 +60,10 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+.DS_Store
+
+# Intermediate build artifacts
+tmp/
+DerivedData/
+*.xcuserstate
+build/
