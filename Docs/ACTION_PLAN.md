@@ -8,19 +8,25 @@ Read this alongside the active milestone doc.
 
 ```
 Clearance/  (inside project root: /Users/chiragc/Projects/Clearance)
-├── AppDelegate.swift              Boot sequence. Instantiates MainWindowController.
-│                                  Sets NSApp.delegate. Handles applicationShouldTerminateAfterLastWindowClosed → true.
+├── main.swift                     Entry point. Creates AppDelegate, sets as NSApp.delegate,
+│                                  calls app.run(). Explicit setup required — no nib/storyboard.
+│
+├── AppDelegate.swift              Boot sequence. Instantiates MainWindowController on launch.
+│                                  Handles applicationShouldTerminateAfterLastWindowClosed → true.
+│                                  Implements applicationSupportsSecureRestorableState → true.
 │
 ├── MainWindowController.swift     Owns the NSWindow.
 │                                  Size: 1200×760 default, 860×580 minimum.
-│                                  Style: fullSizeContentView, transparent titlebar.
-│                                  Centers on launch. Holds WebViewController as content.
+│                                  Standard titled style (no fullSizeContentView).
+│                                  isRestorable = false. Centers on launch.
+│                                  Holds WebViewController as content.
 │
 ├── WebViewController.swift        Owns the WKWebView.
 │                                  Configures WKWebViewConfiguration.
 │                                  Registers all WKScriptMessageHandler names.
 │                                  Loads tcc_audit_app.html via loadFileURL.
-│                                  Conforms to: WKScriptMessageHandler, WKNavigationDelegate.
+│                                  Conforms to: WKScriptMessageHandler, WKNavigationDelegate,
+│                                  WKUIDelegate (file picker via NSOpenPanel).
 │                                  Handles all JS → Swift messages.
 │                                  Owns menu action implementations (CmdO, CmdR).
 │
@@ -88,11 +94,6 @@ All communication between Swift and the HTML goes through two channels only.
 |---|---|---|
 | `saveDB` | `{ data: String (base64), filename: String }` | Decode → NSSavePanel → write file |
 
-Register in WebViewController:
-```swift
-config.userContentController.add(self, name: "saveDB")
-```
-
 ### Swift → JS (evaluateJavaScript)
 
 | Call | When |
@@ -120,11 +121,7 @@ config.userContentController.add(self, name: "saveDB")
 - `resetApp()` / `resetChanges()` — state resets
 - Existing `applyAndDownload()` blob download (browser fallback path)
 
-**Phase 3 modifications (two additions only):**
-1. Replace the blob `<a>` click in `applyAndDownload()` with the
-   WKScriptMessageHandler bridge. Keep the `<a>` click as an else fallback
-   for browser testing. Do not remove it.
-2. Add `handleFileFromNative(base64Data, filename)` function for Cmd+O.
+**Phase 3 modifications:** Complete. See `applyAndDownload()` and `handleFileFromNative()` in the HTML, and `DownloadHandler.swift`.
 
 **Phase 4 modifications (two additions only):**
 1. Append `@media (prefers-color-scheme: light)` CSS block after `:root`.
@@ -144,7 +141,7 @@ circumstance.
 | File load (native) | `evaluateJavaScript("handleFileFromNative(...)")` | Injecting raw JS or reloading WebView | Keeps all DB state in the HTML layer |
 | WebView load | `loadFileURL(_:allowingReadAccessTo:)` with parent directory | `loadHTMLString` | sql.js needs to resolve the .wasm file relative to the HTML |
 | Local file access | `allowFileAccessFromFileURLs = true` on WKPreferences | Default config | Required for sql.js WASM loading from bundle |
-| Background | `webView.drawsBackground = false` | Default | Prevents white flash during dark/light theme transitions |
+| Background | `webView.underPageBackgroundColor = .clear` | Default | Clears overscroll rubber-band area to avoid white flash on theme change |
 | Version string | `Bundle.main.infoDictionary["CFBundleShortVersionString"]` | Hardcoded string | Single source of truth in Info.plist |
 | App termination | `applicationShouldTerminateAfterLastWindowClosed` → `true` | Default | Standard macOS utility app behavior |
 
@@ -166,29 +163,9 @@ Relevant table: `access`
 | `auth_reason` | INTEGER | Set to 3 on all writes (user-modified). |
 | `last_modified` | INTEGER | Unix timestamp. Set via `CAST(strftime('%s','now') AS INTEGER)`. |
 
-Write pattern used in `applyAndDownload()`:
-```sql
--- Edit existing row
-UPDATE access SET auth_value=?, auth_reason=3, last_modified=CAST(strftime('%s','now') AS INTEGER)
-WHERE service=? AND client=? AND client_type=0
-
--- If 0 rows modified, insert new row (permission was never prompted before)
-INSERT INTO access (service, client, client_type, auth_value, auth_reason,
-auth_version, indirect_object_identifier, flags, last_modified)
-VALUES (?, ?, 0, ?, 3, 0, 'UNUSED', 0, CAST(strftime('%s','now') AS INTEGER))
-
--- Remove entry (reset to never prompted)
-DELETE FROM access WHERE service=? AND client=? AND client_type=0
-```
-
-kTCCService keys in use:
-```
-kTCCServiceAppleEvents          kTCCServiceMicrophone
-kTCCServiceCamera               kTCCServiceBluetoothAlways
-kTCCServiceSystemPolicyDesktopFolder    kTCCServiceSystemPolicyDocumentsFolder
-kTCCServiceSystemPolicyDownloadsFolder  kTCCServicePhotos
-kTCCServiceAddressBook          kTCCServiceCalendar
-```
+Write pattern: UPDATE first, INSERT if 0 rows modified, DELETE for null.
+See `applyAndDownload()` in `tcc_audit_app.html` for the exact SQL.
+`auth_reason` is always set to 3 (user-modified). `last_modified` uses `CAST(strftime('%s','now') AS INTEGER)`.
 
 ---
 
@@ -207,15 +184,7 @@ kTCCServiceAddressBook          kTCCServiceCalendar
 | `feature/8-support-files` | 3 | Phase 8 audit passes |
 | `feature/9-release` | 3 | Phase 9 audit passes + M3 gate passes |
 
-Rules:
-- `main` is the source of truth. Never commit directly.
-- One PR per feature branch. One logical change per commit.
-- No branch is opened until the previous one is merged.
-- Phase 10 has no branch. Checklist items are manual actions only.
-
-Commit format: `type: short description`
-Types: feat, fix, docs, chore, style
-No em dashes. No AI-sounding language. No co-author attribution.
+Phase 10 has no branch — manual actions only. All other git rules are in CLAUDE.md.
 
 ---
 
@@ -233,15 +202,7 @@ No em dashes. No AI-sounding language. No co-author attribution.
 | Third-party frameworks | None |
 | External JS dependencies | sql.js 1.10.3 via cdnjs (runtime, not bundled) |
 
-Info.plist required keys:
-```
-NSHumanReadableCopyright        → © 2026 Lucid Labs (Chirag Chopra)
-CFBundleShortVersionString      → 1.0.0
-CFBundleVersion                 → 1
-LSMinimumSystemVersion          → 12.0
-NSPrincipalClass                → NSApplication
-LSApplicationCategoryType       → public.app-category.developer-tools
-```
+Info.plist keys: see `Clearance/Info.plist` (source of truth).
 
 ---
 

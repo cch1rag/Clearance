@@ -11,12 +11,14 @@
 		08EFFD9EA289127E2010CA17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD94D4AC9A613370FE974BD3 /* AppDelegate.swift */; };
 		11AD2934690832F4BD328F45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13D2F81D6FF064EF2A8D046E /* Assets.xcassets */; };
 		1BBFA530EFF214B38ECC88B9 /* tcc_audit_app.html in Resources */ = {isa = PBXBuildFile; fileRef = E8A71B703033EDA65B933F2F /* tcc_audit_app.html */; };
+		80175C9D9E0530E38B39C5BE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DEFC49C8568C7C56DE7211 /* main.swift */; };
 		8E370E7E23851768F663F70F /* DownloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C9A12655894B5A394F64BD /* DownloadHandler.swift */; };
 		A415A63CA5E4B3AC7C175CB8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A8E5CEE3D8E515349FD663 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0B7509B33190DF36A91F1680 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		11DEFC49C8568C7C56DE7211 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		13D2F81D6FF064EF2A8D046E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34C4A19B6F698407847DF441 /* Clearance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clearance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95A8E5CEE3D8E515349FD663 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 			children = (
 				CD94D4AC9A613370FE974BD3 /* AppDelegate.swift */,
 				A8C9A12655894B5A394F64BD /* DownloadHandler.swift */,
+				11DEFC49C8568C7C56DE7211 /* main.swift */,
 				0B7509B33190DF36A91F1680 /* MainWindowController.swift */,
 				95A8E5CEE3D8E515349FD663 /* WebViewController.swift */,
 				D2695EE915BD32C0F50E3ECC /* Resources */,
@@ -139,6 +142,7 @@
 				8E370E7E23851768F663F70F /* DownloadHandler.swift in Sources */,
 				07DCAA5642E8B8BB8A8809C9 /* MainWindowController.swift in Sources */,
 				A415A63CA5E4B3AC7C175CB8 /* WebViewController.swift in Sources */,
+				80175C9D9E0530E38B39C5BE /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
