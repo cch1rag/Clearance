@@ -114,12 +114,12 @@ Key config:
   Load via: webView.loadFileURL(url, allowingReadAccessTo: url.deletingLastPathComponent())
 
 Audit checklist:
-- [ ] Drop screen appears correctly inside the app window
-- [ ] Dark/light mode switches follow System Preferences in real time, no reload
-- [ ] sql.js loads without console errors (attach Safari Web Inspector:
+- [x] Drop screen appears correctly inside the app window
+- [x] Dark/light mode switches follow System Preferences in real time, no reload
+- [x] sql.js loads without console errors (attach Safari Web Inspector:
       Safari > Develop > [your Mac] > Clearance)
-- [ ] Dragging a real .db file onto the drop zone parses and renders the table
-- [ ] No JS errors in console related to the saveDB handler being missing
+- [x] Dragging a real .db file onto the drop zone parses and renders the table
+- [x] No JS errors in console related to the saveDB handler being missing
 
 ---
 
