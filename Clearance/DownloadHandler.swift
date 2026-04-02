@@ -15,34 +15,24 @@ struct DownloadHandler {
         }
 
         let panel = NSSavePanel()
-        panel.nameFieldStringValue = name
+        panel.nameFieldStringValue  = name
         panel.allowedContentTypes   = [.init(filenameExtension: "db")!]
         panel.canCreateDirectories  = true
 
-        let run: (NSSavePanel) -> Void = { p in
-            p.begin { response in
-                guard response == .OK, let url = p.url else { return }
-                do {
-                    try data.write(to: url, options: .atomic)
-                } catch {
-                    let alert = NSAlert(error: error)
-                    alert.runModal()
-                }
+        let write: (NSApplication.ModalResponse) -> Void = { response in
+            guard response == .OK, let url = panel.url else { return }
+            do {
+                try data.write(to: url, options: .atomic)
+            } catch {
+                let alert = NSAlert(error: error)
+                alert.runModal()
             }
         }
 
         if let window {
-            panel.beginSheet(window) { response in
-                guard response == .OK, let url = panel.url else { return }
-                do {
-                    try data.write(to: url, options: .atomic)
-                } catch {
-                    let alert = NSAlert(error: error)
-                    alert.runModal()
-                }
-            }
+            panel.beginSheetModal(for: window, completionHandler: write)
         } else {
-            run(panel)
+            panel.begin(completionHandler: write)
         }
     }
 }
