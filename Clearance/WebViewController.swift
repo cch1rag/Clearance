@@ -1,5 +1,6 @@
 import Cocoa
 import WebKit
+import UniformTypeIdentifiers
 
 class WebViewController: NSViewController {
     private var webView: WKWebView!
@@ -13,10 +14,28 @@ class WebViewController: NSViewController {
         // Register saveDB handler; body implemented in Phase 3 via DownloadHandler
         config.userContentController.add(self, name: "saveDB")
 
+        // Cmd+A in <input> fields: AppKit's Select All intercepts before WebKit can handle it.
+        // This script restores expected behavior by catching the event in the capture phase.
+        let cmdAScript = WKUserScript(
+            source: """
+            document.addEventListener('keydown', function(e) {
+                if ((e.metaKey || e.ctrlKey) && e.key === 'a' &&
+                    (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {
+                    e.target.select();
+                    e.preventDefault();
+                }
+            }, true);
+            """,
+            injectionTime: .atDocumentEnd,
+            forMainFrameOnly: true
+        )
+        config.userContentController.addUserScript(cmdAScript)
+
         webView = WKWebView(frame: .zero, configuration: config)
         // Clear under-page area so there is no white flash when the OS theme changes
         webView.underPageBackgroundColor = .clear
         webView.navigationDelegate = self
+        webView.uiDelegate = self
 
         self.view = webView
     }
@@ -41,6 +60,24 @@ extension WebViewController: WKScriptMessageHandler {
                                didReceive message: WKScriptMessage) {
         guard message.name == "saveDB" else { return }
         DownloadHandler.save(message: message, in: view.window)
+    }
+}
+
+extension WebViewController: WKUIDelegate {
+    func webView(_ webView: WKWebView,
+                 runOpenPanelWith parameters: WKOpenPanelParameters,
+                 initiatedByFrame frame: WKFrameInfo,
+                 completionHandler: @escaping ([URL]?) -> Void) {
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.allowsMultipleSelection = parameters.allowsMultipleSelection
+        if let dbType = UTType(filenameExtension: "db") {
+            panel.allowedContentTypes = [dbType]
+        }
+        panel.begin { response in
+            completionHandler(response == .OK ? panel.urls : nil)
+        }
     }
 }
 
