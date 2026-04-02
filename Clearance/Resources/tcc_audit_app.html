@@ -465,16 +465,31 @@ function applyAndDownload() {
 
   if (errors.length) { alert('Some changes failed:\n\n' + errors.join('\n')); }
 
-  // Trigger download
-  const blob = new Blob([data], {type:'application/octet-stream'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = dbFilename.replace(/\.db$/i,'') + '_modified.db';
-  document.body.appendChild(a); a.click(); document.body.removeChild(a);
-  setTimeout(() => URL.revokeObjectURL(url), 2000);
+  // Trigger download — native path via Swift NSSavePanel, browser fallback for testing
+  const fname = dbFilename.replace(/\.db$/i, '') + '_modified.db';
+  if (window.webkit?.messageHandlers?.saveDB) {
+    const b64 = btoa(String.fromCharCode(...data));
+    window.webkit.messageHandlers.saveDB.postMessage({ data: b64, filename: fname });
+  } else {
+    const blob = new Blob([data], {type:'application/octet-stream'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = fname;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+  }
 
   const applied = Object.keys(changes).length - errors.length;
   toast(`Downloaded with ${applied} change${applied!==1?'s':''} applied`);
+}
+
+// Called by Swift via evaluateJavaScript when the user picks a file with Cmd+O (Phase 5)
+function handleFileFromNative(base64Data, filename) {
+  const binary = atob(base64Data);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  const file = new File([bytes], filename, { type: 'application/octet-stream' });
+  handleFile(file);
 }
 
 // Toast helper
