@@ -7,7 +7,7 @@ Native macOS privacy permission manager. Read these files in order before starti
 3. The relevant milestone doc for the current session (see below)
 
 ## Existing Files (do not rebuild)
-- [tcc_audit_app.html](Resources/tcc_audit_app.html) already exists and is complete. It is the working HTML app built prior to this project. Do not rewrite it.
+- [tcc_audit_app.html](Clearance/Resources/tcc_audit_app.html) already exists and is complete. It is the working HTML app built prior to this project. Do not rewrite it.
 - Treat it as verified, production-ready code. The only permitted changes to this file are the additions specified in Phase 4 (light theme CSS block and privacy badge HTML). Everything else stays untouched.
 
 ## Bridge Pattern (Swift ↔ HTML)
