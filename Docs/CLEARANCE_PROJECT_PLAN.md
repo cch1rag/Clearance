@@ -1,7 +1,7 @@
 # Clearance — Project Execution Plan
 
 **macOS Privacy Permission Manager**
-*Built by Lucid Labs · Chirag Chopra*
+*Built by Chirag Chopra*
 
 ---
 
@@ -12,7 +12,7 @@
 | **Name**      | Clearance                                                                                                             |
 | **Tagline**   | Full visibility into what your Mac apps can access.                                                                   |
 | **One-liner** | A native macOS tool to audit, edit, and understand app privacy permissions. 100% local — no data leaves your machine. |
-| **Category**  | Developer Tools / Privacy & Security                                                                                  |
+| **Category**  | Utilities / Privacy & Security                                                                                        |
 | **License**   | MIT                                                                                                                   |
 | **Min macOS** | 12 Monterey                                                                                                           |
 | **Arch**      | Universal (Apple Silicon + Intel)                                                                                     |
@@ -120,7 +120,7 @@ Help
 ```
 Clearance  v1.0.0
 A macOS privacy permission manager.
-Built by Chirag Chopra / Lucid Labs
+Built by Chirag Chopra
 
 100% local — no data leaves your Mac.
 

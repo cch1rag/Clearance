@@ -62,7 +62,7 @@ iconutil -c icns Clearance.iconset
 
 ```
 Product Name:        Clearance
-Bundle Identifier:   in.lucidlabs.clearance
+Bundle Identifier:   com.ch1rag.clearance
 Team:                (your Apple ID — no paid account needed for local builds)
 Deployment Target:   macOS 12.0
 Language:            Swift
@@ -90,12 +90,12 @@ Architecture:        Apple Silicon + Intel (Universal)
 ### Info.plist keys required
 
 ```xml
-NSHumanReadableCopyright   → © 2026 Lucid Labs (Chirag Chopra)
+NSHumanReadableCopyright   → © 2026 Chirag Chopra
 CFBundleShortVersionString → 1.0.0
 CFBundleVersion            → 1
 LSMinimumSystemVersion     → 12.0
 NSPrincipalClass           → NSApplication
-LSApplicationCategoryType  → public.app-category.developer-tools
+LSApplicationCategoryType  → public.app-category.utilities
 ```
 
 **Checkpoint audit:**

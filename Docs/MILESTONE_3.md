@@ -57,7 +57,7 @@ Sections in order:
   6. How to use — numbered steps with the cp command and optional DB replace step
   7. Privacy — offline-only, no telemetry, sql.js internet-on-first-load caveat
   8. Built with — Swift + WKWebView, sql.js, vanilla HTML/CSS/JS, no frameworks
-  9. Author — Chirag Chopra / Lucid Labs
+  9. Author — Chirag Chopra
   10. License — MIT, link to LICENSE file
 
 SEO targets to include naturally in the copy:
@@ -102,7 +102,7 @@ SECURITY.md must cover:
   *.xccheckout, *.xcscmblueprint, build/, *.o, *.a, *.swp, Pods/, .build/
 
 LICENSE:
-  MIT license, year 2026, copyright Chirag Chopra / Lucid Labs
+  MIT license, year 2026, copyright Chirag Chopra
 
 CODE_OF_CONDUCT.md:
   Contributor Covenant v2.1 boilerplate with contact email filled in

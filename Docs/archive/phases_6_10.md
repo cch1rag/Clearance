@@ -13,7 +13,7 @@ Archived from CLEARANCE_PROJECT_PLAN.md. Load this file when starting Milestone 
 ```
 Name:        clearance
 Visibility:  Public
-URL:         github.com/[your-handle]/clearance
+URL:         github.com/cch1rag/clearance
 Description: Native macOS app to audit, edit & understand app privacy permissions (TCC). 100% local.
 Topics:      macos, privacy, security, tcc, swift, sqlite, developer-tools, open-source,
              permissions, macos-app, indie, privacy-audit, transparency-consent-control
@@ -89,7 +89,7 @@ you modify it without touching the terminal.
 
 ### Option B — Build from source
 Requirements: Xcode 15+, macOS 12+
-  git clone https://github.com/[handle]/clearance
+  git clone https://github.com/cch1rag/clearance
   open Clearance.xcodeproj
   # Press ⌘R to build and run
 
@@ -122,8 +122,8 @@ the modified file you explicitly download.
 - HTML/CSS/JS — no frameworks
 
 ## Author
-Chirag Chopra · Lucid Labs
-[lucidlabs.in] · [@handle on GitHub]
+Chirag Chopra
+[@cch1rag on GitHub](https://github.com/cch1rag)
 
 ## License
 MIT — see LICENSE

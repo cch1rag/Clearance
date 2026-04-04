@@ -20,7 +20,7 @@
 		0B7509B33190DF36A91F1680 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		11DEFC49C8568C7C56DE7211 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		13D2F81D6FF064EF2A8D046E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		34C4A19B6F698407847DF441 /* Clearance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clearance.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34C4A19B6F698407847DF441 /* Clearance - App Permissions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clearance - App Permissions.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95A8E5CEE3D8E515349FD663 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		A8C9A12655894B5A394F64BD /* DownloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadHandler.swift; sourceTree = "<group>"; };
 		CD94D4AC9A613370FE974BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -31,7 +31,7 @@
 		16545B835C0A0207E7B147B6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				34C4A19B6F698407847DF441 /* Clearance.app */,
+				34C4A19B6F698407847DF441 /* Clearance - App Permissions.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,7 +84,7 @@
 			packageProductDependencies = (
 			);
 			productName = Clearance;
-			productReference = 34C4A19B6F698407847DF441 /* Clearance.app */;
+			productReference = 34C4A19B6F698407847DF441 /* Clearance - App Permissions.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -97,7 +97,6 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					0968501C6A4F63E013A14374 = {
-						DevelopmentTeam = "";
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -157,14 +156,19 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
 				INFOPLIST_FILE = Clearance/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Clearance;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				PRODUCT_BUNDLE_IDENTIFIER = in.lucidlabs.clearance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ch1rag.clearance;
+				PRODUCT_NAME = "Clearance - App Permissions";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -176,14 +180,19 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
 				INFOPLIST_FILE = Clearance/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Clearance;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				PRODUCT_BUNDLE_IDENTIFIER = in.lucidlabs.clearance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ch1rag.clearance;
+				PRODUCT_NAME = "Clearance - App Permissions";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

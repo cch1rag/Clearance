@@ -67,3 +67,6 @@ tmp/
 DerivedData/
 *.xcuserstate
 build/
+
+# Commander app config
+.commander/
