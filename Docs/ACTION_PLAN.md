@@ -36,7 +36,7 @@ Clearance/  (inside project root: /Users/chiragc/Projects/Clearance)
 │                                  Single responsibility: file write only.
 │
 └── Resources/
-    ├── tcc_audit_app.html         Existing, complete. Do not rebuild.
+    ├── tcc_audit_app.html         Existing, complete. Canonical path: Clearance/Resources/. Do not rebuild.
     │                              Only Phase 4 additions permitted.
     └── Assets.xcassets/
         └── AppIcon.appiconset/
@@ -106,8 +106,7 @@ All communication between Swift and the HTML goes through two channels only.
 ## HTML File Contract
 
 - File: `tcc_audit_app.html`
-  - Project root location (source of truth): `Resources/tcc_audit_app.html`
-  - Xcode target location (after Phase 1 setup): `Clearance/Resources/tcc_audit_app.html`
+  - Canonical path (source of truth): `Clearance/Resources/tcc_audit_app.html`
 - Status: Complete and verified. Do not rewrite.
 
 **What exists (do not touch):**
@@ -192,8 +191,8 @@ Phase 10 has no branch — manual actions only. All other git rules are in CLAUD
 
 | Setting | Value |
 |---|---|
-| Product Name | Clearance |
-| Bundle ID | in.lucidlabs.clearance |
+| Product Name | Clearance - App Permissions (display name: Clearance) |
+| Bundle ID | com.ch1rag.clearance |
 | Deployment Target | macOS 12.0 Monterey |
 | Language | Swift |
 | Interface | Programmatic (no SwiftUI, no XIB) |

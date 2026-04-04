@@ -50,7 +50,7 @@ Branch: feature/1-xcode-setup`
 
 Config:
   Product Name:       Clearance
-  Bundle ID:          com.lucidlabs.clearance
+  Bundle ID:          com.ch1rag.clearance
   Deployment Target:  macOS 12.0
   Language:           Swift
   Interface:          Programmatic (no SwiftUI, no XIB)
@@ -76,7 +76,7 @@ Required Info.plist keys:
   CFBundleVersion             → 1
   LSMinimumSystemVersion      → 12.0
   NSPrincipalClass            → NSApplication
-  LSApplicationCategoryType   → public.app-category.developer-tools
+  LSApplicationCategoryType   → public.app-category.utilities
 
 Audit checklist:
 - [x] Cmd+B builds clean (0 errors, 0 warnings)

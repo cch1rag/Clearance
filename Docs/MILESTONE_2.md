@@ -99,11 +99,11 @@ Menu structure:
 About panel content:
   Clearance  v[version from Bundle.main.infoDictionary]
   A macOS privacy permission manager.
-  Built by Chirag Chopra / Lucid Labs
+  Built by Chirag Chopra
 
   100% local — no data leaves your Mac.
 
-  github.com/lucidlabsco/clearance
+  github.com/cch1rag/clearance
   MIT License
 
 Version must be read from Bundle.main.infoDictionary["CFBundleShortVersionString"].
