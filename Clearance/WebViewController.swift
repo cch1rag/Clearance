@@ -4,6 +4,7 @@ import UniformTypeIdentifiers
 
 class WebViewController: NSViewController {
     private var webView: WKWebView!
+    private var appearanceObservation: NSKeyValueObservation?
 
     override func loadView() {
         let config = WKWebViewConfiguration()
@@ -43,6 +44,9 @@ class WebViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadHTML()
+        appearanceObservation = NSApp.observe(\.effectiveAppearance, options: []) { [weak self] _, _ in
+            self?.syncAppearance()
+        }
     }
 
     private func loadHTML() {
@@ -52,6 +56,11 @@ class WebViewController: NSViewController {
         }
         // allowingReadAccessTo parent directory lets sql.js resolve the .wasm file alongside the HTML
         webView.loadFileURL(url, allowingReadAccessTo: url.deletingLastPathComponent())
+    }
+
+    private func syncAppearance() {
+        let isDark = view.effectiveAppearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
+        webView.evaluateJavaScript("setSystemAppearance(\(isDark))", completionHandler: nil)
     }
 }
 
@@ -82,6 +91,10 @@ extension WebViewController: WKUIDelegate {
 }
 
 extension WebViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        syncAppearance()
+    }
+
     func webView(_ webView: WKWebView,
                  decidePolicyFor navigationAction: WKNavigationAction,
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
