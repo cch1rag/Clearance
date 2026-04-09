@@ -36,16 +36,13 @@ class AboutWindowController: NSWindowController {
         v.addSubview(makeLabel("Version \(version)", fontSize: 12, color: .secondaryLabelColor, y: 154, width: width))
 
         // Tagline
-        v.addSubview(makeLabel("A macOS privacy permission manager.", fontSize: 12, color: .secondaryLabelColor, y: 120, width: width))
-
-        // Author
-        v.addSubview(makeLabel("Built by Chirag Chopra", fontSize: 12, color: .secondaryLabelColor, y: 96, width: width))
+        v.addSubview(makeLabel("A macOS privacy permission manager.", fontSize: 12, color: .secondaryLabelColor, y: 108, width: width))
 
         // Privacy note
-        v.addSubview(makeLabel("100% local — no data leaves your Mac.", fontSize: 11, color: .tertiaryLabelColor, y: 70, width: width))
+        v.addSubview(makeLabel("100% local — no data leaves your Mac.", fontSize: 11, color: .tertiaryLabelColor, y: 82, width: width))
 
         // GitHub link button
-        let link = NSButton(frame: NSRect(x: 0, y: 40, width: width, height: 22))
+        let link = NSButton(frame: NSRect(x: 0, y: 52, width: width, height: 22))
         link.title = "github.com/cch1rag/clearance"
         link.bezelStyle = .inline
         link.isBordered = false
@@ -57,7 +54,7 @@ class AboutWindowController: NSWindowController {
         v.addSubview(link)
 
         // Copyright
-        v.addSubview(makeLabel("MIT License · © 2026 Chirag Chopra", fontSize: 10, color: .quaternaryLabelColor, y: 16, width: width))
+        v.addSubview(makeLabel("MIT License · © 2026 Chirag Chopra", fontSize: 10, color: .quaternaryLabelColor, y: 26, width: width))
     }
 
     private func makeLabel(_ text: String,
