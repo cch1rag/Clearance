@@ -73,11 +73,11 @@ Add the corresponding CSS inside the <style> tag:
   .priv-icon { font-size: 13px; }
 
 Audit checklist:
-- [ ] Switch System Preferences to Light — app switches without reload
-- [ ] Switch back to Dark — reverts cleanly, no visual glitches
-- [ ] Privacy badge is visible on the drop screen in both themes
-- [ ] Badge sits between the eyebrow label and the drop area, not inside it
-- [ ] No hardcoded hex color values exist outside :root blocks in the HTML
+- [x] Switch System Preferences to Light — app switches without reload
+- [x] Switch back to Dark — reverts cleanly, no visual glitches
+- [x] Privacy badge is visible on the drop screen in both themes
+- [x] Badge sits between the eyebrow label and the drop area, not inside it
+- [x] No hardcoded hex color values exist outside :root blocks in the HTML
 
 ---
 
@@ -116,12 +116,12 @@ Cmd+O implementation:
 - This calls the handleFileFromNative() function added to the HTML in Phase 3
 
 Audit checklist:
-- [ ] CmdO opens a file picker that shows only .db files
-- [ ] Selected file loads and renders the permission table correctly
-- [ ] CmdR reloads the WebView and returns to the drop screen
-- [ ] About panel shows the correct version number from Info.plist
-- [ ] View on GitHub opens github.com/lucidlabsco/clearance in the default browser
-- [ ] CmdQ quits the app
+- [x] CmdO opens a file picker that shows only .db files
+- [x] Selected file loads and renders the permission table correctly
+- [x] CmdR reloads the WebView and returns to the drop screen
+- [x] About panel shows the correct version number from Info.plist
+- [x] View on GitHub opens github.com/cch1rag/clearance in the default browser
+- [x] CmdQ quits the app
 
 ---
 
@@ -132,4 +132,4 @@ complete: load a DB, edit a cell, check all UI states (pending amber, granted
 green, denied red) in light mode and dark mode. Do a clean build from scratch
 to confirm no hardcoded values were introduced.
 
-Status: [ ] Complete
+Status: [x] Complete — merged to main 2026-04-10 (PR #7, PR #8)
