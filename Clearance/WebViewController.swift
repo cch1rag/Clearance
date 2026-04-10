@@ -62,6 +62,30 @@ class WebViewController: NSViewController {
         let isDark = view.effectiveAppearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
         webView.evaluateJavaScript("setSystemAppearance(\(isDark))", completionHandler: nil)
     }
+
+    // MARK: - Menu actions (responder chain)
+
+    @objc func openDatabase(_ sender: Any?) {
+        guard let window = view.window else { return }
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.allowsMultipleSelection = false
+        if let dbType = UTType(filenameExtension: "db") {
+            panel.allowedContentTypes = [dbType]
+        }
+        panel.beginSheetModal(for: window) { [weak self] response in
+            guard response == .OK, let url = panel.url else { return }
+            guard let data = try? Data(contentsOf: url) else { return }
+            let b64 = data.base64EncodedString()
+            let filename = url.lastPathComponent
+            self?.webView.evaluateJavaScript("handleFileFromNative('\(b64)', '\(filename)')", completionHandler: nil)
+        }
+    }
+
+    @objc func reloadPage(_ sender: Any?) {
+        webView.reload()
+    }
 }
 
 extension WebViewController: WKScriptMessageHandler {
