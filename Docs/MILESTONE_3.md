@@ -11,42 +11,33 @@ Prerequisite: Milestone 2 complete and merged to main.
 ## Phases
 
 ### Phase 6 — GitHub Repository Setup
-Branch: feature/6-repo-setup`
+Branch: `feature/6-repo-setup`
 
-Repository config:
-  Name:        clearance
-  Visibility:  Public
-  Description: Native macOS app to audit, edit, and understand app privacy
-               permissions (TCC). 100% local.
+Repository config (repo already exists at cch1rag/Clearance):
+  Visibility:  Make public (currently private)
+  Description: Already set — no change needed
   Topics:      macos privacy security tcc swift sqlite developer-tools
                open-source permissions macos-app indie privacy-audit
                transparency-consent-control
 
-Repo file structure:
-  clearance/
-  ├── Clearance.xcodeproj/
-  ├── Clearance/
-  ├── Screenshots/
-  │   ├── dark-mode.png
-  │   ├── light-mode.png
-  │   └── edit-popup.png
-  ├── README.md
-  ├── CONTRIBUTING.md
-  ├── CODE_OF_CONDUCT.md
-  ├── SECURITY.md
-  ├── LICENSE
-  └── .gitignore
+Add Screenshots/ folder with these files (take from running app):
+  Screenshots/
+  ├── dark-mode.png
+  ├── light-mode.png
+  └── edit-popup.png
+
+Supporting files needed at repo root (created in Phase 8):
+  README.md, CONTRIBUTING.md, CODE_OF_CONDUCT.md, SECURITY.md, LICENSE
 
 Audit checklist:
 - [ ] Repo is public and accessible without login
-- [ ] All listed files are present at root
 - [ ] Topics are set and visible on the repo page
-- [ ] Screenshots folder has at least dark-mode.png for the README
+- [ ] Screenshots/ folder exists with at least dark-mode.png for the README
 
 ---
 
 ### Phase 7 — README
-Branch: feature/7-readme`
+Branch: `feature/7-readme`
 
 Sections in order:
   1. App name + screenshot (dark mode, full app width)
@@ -75,7 +66,7 @@ Audit checklist:
 ---
 
 ### Phase 8 — Supporting Files
-Branch: feature/8-support-files`
+Branch: `feature/8-support-files`
 
 CONTRIBUTING.md must cover:
   - Open an issue before a PR for anything beyond a bug fix
@@ -97,9 +88,8 @@ SECURITY.md must cover:
   - Out of scope: issues requiring SIP disabled, social engineering
   - Note that Clearance operates on a copy only — no elevated privileges
 
-.gitignore must cover:
-  .DS_Store, *.xcuserstate, xcuserdata/, DerivedData/, *.moved-aside,
-  *.xccheckout, *.xcscmblueprint, build/, *.o, *.a, *.swp, Pods/, .build/
+.gitignore already exists. Extend it to also cover (if not already present):
+  *.moved-aside, *.xccheckout, *.xcscmblueprint, *.o, *.a, *.swp, Pods/
 
 LICENSE:
   MIT license, year 2026, copyright Chirag Chopra
@@ -117,7 +107,7 @@ Audit checklist:
 ---
 
 ### Phase 9 — First Release (v1.0.0)
-Branch: feature/9-release`
+Branch: `feature/9-release`
 
 Build steps:
   1. Xcode: Product > Archive
