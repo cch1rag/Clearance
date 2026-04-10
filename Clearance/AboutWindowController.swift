@@ -8,7 +8,7 @@ class AboutWindowController: NSWindowController {
         let h: CGFloat = 290
         let panel = NSPanel(
             contentRect: NSRect(x: 0, y: 0, width: w, height: h),
-            styleMask: [.titled, .closable, .nonactivatingPanel],
+            styleMask: [.titled, .closable],
             backing: .buffered,
             defer: false
         )
@@ -72,7 +72,7 @@ class AboutWindowController: NSWindowController {
     }
 
     @objc private func openGitHub() {
-        NSWorkspace.shared.open(URL(string: "https://github.com/cch1rag/clearance")!)
+        (NSApp.delegate as? AppDelegate)?.openGitHub()
     }
 
     func show() {

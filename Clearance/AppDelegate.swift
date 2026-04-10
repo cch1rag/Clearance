@@ -56,7 +56,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         AboutWindowController.shared.show()
     }
 
-    @objc private func openGitHub() {
-        NSWorkspace.shared.open(URL(string: "https://github.com/cch1rag/clearance")!)
+    @objc func openGitHub() {
+        guard let url = URL(string: "https://github.com/cch1rag/clearance") else { return }
+        NSWorkspace.shared.open(url)
     }
 }
