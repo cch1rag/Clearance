@@ -35,9 +35,12 @@ Clearance/  (inside project root: /Users/chiragc/Projects/Clearance)
 │                                  Decodes base64 → Data → writes to user-chosen URL.
 │                                  Single responsibility: file write only.
 │
+├── AboutWindowController.swift    NSPanel singleton. Shows app icon, version, tagline,
+│                                  privacy note, GitHub link, MIT copyright.
+│                                  Version read from Bundle.main.infoDictionary. Never hardcoded.
+│
 └── Resources/
-    ├── tcc_audit_app.html         Existing, complete. Canonical path: Clearance/Resources/. Do not rebuild.
-    │                              Only Phase 4 additions permitted.
+    ├── tcc_audit_app.html         Existing, complete, frozen. Canonical path: Clearance/Resources/.
     └── Assets.xcassets/
         └── AppIcon.appiconset/
 ```
@@ -120,15 +123,7 @@ All communication between Swift and the HTML goes through two channels only.
 - `resetApp()` / `resetChanges()` — state resets
 - Existing `applyAndDownload()` blob download (browser fallback path)
 
-**Phase 3 modifications:** Complete. See `applyAndDownload()` and `handleFileFromNative()` in the HTML, and `DownloadHandler.swift`.
-
-**Phase 4 modifications (two additions only):**
-1. Append `@media (prefers-color-scheme: light)` CSS block after `:root`.
-2. Add `.privacy-badge` HTML between `.drop-eyebrow` and `#drop-area`.
-   Add corresponding `.privacy-badge` and `.priv-icon` CSS rules.
-
-**After Phase 4: file is frozen.** No further modifications under any
-circumstance.
+**File is frozen.** All phase modifications (Phases 3 and 4) are complete. No further changes under any circumstance.
 
 ---
 
@@ -170,18 +165,14 @@ See `applyAndDownload()` in `tcc_audit_app.html` for the exact SQL.
 
 ## Git Branch Map
 
-| Branch | Milestone | Merges when |
-|---|---|---|
-| `feature/0-branding` | 1 | Phase 0 audit passes |
-| `feature/1-xcode-setup` | 1 | Phase 1 audit passes |
-| `feature/2-webview` | 1 | Phase 2 audit passes |
-| `feature/3-download-handler` | 1 | Phase 3 audit passes + M1 gate passes |
-| `feature/4-light-theme` | 2 | Phase 4 audit passes |
-| `feature/5-menu` | 2 | Phase 5 audit passes + M2 gate passes |
-| `feature/6-repo-setup` | 3 | Phase 6 audit passes |
-| `feature/7-readme` | 3 | Phase 7 audit passes |
-| `feature/8-support-files` | 3 | Phase 8 audit passes |
-| `feature/9-release` | 3 | Phase 9 audit passes + M3 gate passes |
+Milestones 1 and 2 complete. Active branches for Milestone 3:
+
+| Branch | Merges when |
+|---|---|
+| `feature/6-repo-setup` | Phase 6 audit passes |
+| `feature/7-readme` | Phase 7 audit passes |
+| `feature/8-support-files` | Phase 8 audit passes |
+| `feature/9-release` | Phase 9 audit passes + M3 gate passes |
 
 Phase 10 has no branch — manual actions only. All other git rules are in CLAUDE.md.
 
@@ -191,7 +182,7 @@ Phase 10 has no branch — manual actions only. All other git rules are in CLAUD
 
 | Setting | Value |
 |---|---|
-| Product Name | Clearance - App Permissions (display name: Clearance) |
+| Product Name | Clearance |
 | Bundle ID | com.ch1rag.clearance |
 | Deployment Target | macOS 12.0 Monterey |
 | Language | Swift |
