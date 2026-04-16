@@ -1,6 +1,6 @@
 # Clearance
 
-![light mode screenshot](Screenshots/light-mode.png)
+![light mode screenshot](Screenshots/Clearance_Modified_Light.png)
 
 [![macOS 12+](https://img.shields.io/badge/macOS-12%2B-blue)](https://www.apple.com/macos/)
 [![Swift](https://img.shields.io/badge/Swift-5.9-orange?logo=swift)](https://swift.org)
@@ -104,6 +104,23 @@ Clearance never reads your actual TCC database automatically — you choose whic
 - WKWebView to host the interactive table UI
 - [sql.js](https://github.com/sql-js/sql.js) (SQLite compiled to WebAssembly) for parsing `.db` files in the web layer
 - Vanilla HTML, CSS, and JavaScript — no frontend frameworks
+
+---
+
+## More screenshots
+
+<table>
+  <tr>
+    <td><img width="1604" alt="Clearance main view in light mode" src="./Screenshots/Clearance_Main_Light.png"></td>
+    <td><img width="1604" alt="Clearance main view in dark mode" src="./Screenshots/Clearance_Main_Dark.png"></td>
+    <td><img width="1604" alt="Modified records view in light mode" src="./Screenshots/Clearance_Modified_Light.png"></td>
+  </tr>
+  <tr>
+    <td><img width="1604" alt="Modified records view in dark mode" src="./Screenshots/Clearance_Modified_Dark.png"></td>
+    <td><img width="1604" alt="Edit popup in light mode" src="./Screenshots/Clearance_EditPopup_Light.png"></td>
+    <td><img width="1604" alt="Edit popup in dark mode" src="./Screenshots/Clearance_EditPopup_Dark.png"></td>
+  </tr>
+</table>
 
 ---
 
