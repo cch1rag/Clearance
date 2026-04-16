@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		07DCAA5642E8B8BB8A8809C9 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7509B33190DF36A91F1680 /* MainWindowController.swift */; };
 		08EFFD9EA289127E2010CA17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD94D4AC9A613370FE974BD3 /* AppDelegate.swift */; };
-		B2C3D4E5F6A7B8C9D0E1F2A3 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B4C5D6E7F8A9B0C1D2E3F4 /* AboutWindowController.swift */; };
 		11AD2934690832F4BD328F45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13D2F81D6FF064EF2A8D046E /* Assets.xcassets */; };
 		1BBFA530EFF214B38ECC88B9 /* tcc_audit_app.html in Resources */ = {isa = PBXBuildFile; fileRef = E8A71B703033EDA65B933F2F /* tcc_audit_app.html */; };
+		67EA3B6C96A22F026A6E5DE0 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71628B65C1C3DAB60DCDD83 /* AboutWindowController.swift */; };
 		80175C9D9E0530E38B39C5BE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DEFC49C8568C7C56DE7211 /* main.swift */; };
 		8E370E7E23851768F663F70F /* DownloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C9A12655894B5A394F64BD /* DownloadHandler.swift */; };
 		A415A63CA5E4B3AC7C175CB8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A8E5CEE3D8E515349FD663 /* WebViewController.swift */; };
@@ -19,11 +19,11 @@
 
 /* Begin PBXFileReference section */
 		0B7509B33190DF36A91F1680 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
-		A3B4C5D6E7F8A9B0C1D2E3F4 /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		11DEFC49C8568C7C56DE7211 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		13D2F81D6FF064EF2A8D046E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34C4A19B6F698407847DF441 /* Clearance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clearance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95A8E5CEE3D8E515349FD663 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		A71628B65C1C3DAB60DCDD83 /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		A8C9A12655894B5A394F64BD /* DownloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadHandler.swift; sourceTree = "<group>"; };
 		CD94D4AC9A613370FE974BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8A71B703033EDA65B933F2F /* tcc_audit_app.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = tcc_audit_app.html; sourceTree = "<group>"; };
@@ -49,7 +49,7 @@
 		D183F7BE0F49CD9177BF3CB2 /* Clearance */ = {
 			isa = PBXGroup;
 			children = (
-				A3B4C5D6E7F8A9B0C1D2E3F4 /* AboutWindowController.swift */,
+				A71628B65C1C3DAB60DCDD83 /* AboutWindowController.swift */,
 				CD94D4AC9A613370FE974BD3 /* AppDelegate.swift */,
 				A8C9A12655894B5A394F64BD /* DownloadHandler.swift */,
 				11DEFC49C8568C7C56DE7211 /* main.swift */,
@@ -100,6 +100,7 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					0968501C6A4F63E013A14374 = {
+						DevelopmentTeam = "";
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -140,8 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67EA3B6C96A22F026A6E5DE0 /* AboutWindowController.swift in Sources */,
 				08EFFD9EA289127E2010CA17 /* AppDelegate.swift in Sources */,
-				B2C3D4E5F6A7B8C9D0E1F2A3 /* AboutWindowController.swift in Sources */,
 				8E370E7E23851768F663F70F /* DownloadHandler.swift in Sources */,
 				07DCAA5642E8B8BB8A8809C9 /* MainWindowController.swift in Sources */,
 				A415A63CA5E4B3AC7C175CB8 /* WebViewController.swift in Sources */,
@@ -160,10 +161,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
 				INFOPLIST_FILE = Clearance/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Clearance;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -172,7 +170,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ch1rag.clearance;
 				PRODUCT_NAME = Clearance;
 				SDKROOT = macosx;
-				SWIFT_VERSION = 5.9;
 			};
 			name = Debug;
 		};
@@ -184,10 +181,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
 				INFOPLIST_FILE = Clearance/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Clearance;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -196,7 +190,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ch1rag.clearance;
 				PRODUCT_NAME = Clearance;
 				SDKROOT = macosx;
-				SWIFT_VERSION = 5.9;
 			};
 			name = Release;
 		};
@@ -235,7 +228,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -249,7 +242,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -296,7 +289,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -316,7 +309,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
