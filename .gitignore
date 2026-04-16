@@ -70,3 +70,18 @@ build/
 
 # Commander app config
 .commander/
+
+# Additional Xcode artifacts
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# Compiled object files
+*.o
+*.a
+
+# Vim swap files
+*.swp
+
+# CocoaPods
+Pods/
