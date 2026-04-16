@@ -8,7 +8,7 @@ class MainWindowController: NSWindowController {
             backing: .buffered,
             defer: false
         )
-        window.title = "Clearance - Hidden App Permission"
+        window.title = "Clearance"
         window.minSize = NSSize(width: 860, height: 580)
         window.center()
         window.isRestorable = false
