@@ -77,10 +77,24 @@ class WebViewController: NSViewController {
         panel.beginSheetModal(for: window) { [weak self] response in
             guard response == .OK, let url = panel.url else { return }
             guard let data = try? Data(contentsOf: url) else { return }
-            let b64 = data.base64EncodedString()
-            let filename = url.lastPathComponent
-            self?.webView.evaluateJavaScript("handleFileFromNative('\(b64)', '\(filename)')", completionHandler: nil)
+            self?.loadDatabaseInWebView(data: data, filename: url.lastPathComponent)
         }
+    }
+
+    private func loadDatabaseInWebView(data: Data, filename: String) {
+        let payload = [
+            "data": data.base64EncodedString(),
+            "filename": filename,
+        ]
+        guard
+            let jsonData = try? JSONSerialization.data(withJSONObject: payload),
+            let jsonPayload = String(data: jsonData, encoding: .utf8)
+        else {
+            assertionFailure("Failed to serialize selected database payload")
+            return
+        }
+
+        webView.evaluateJavaScript("handleFileFromNative(\(jsonPayload))", completionHandler: nil)
     }
 
     @objc func reloadPage(_ sender: Any?) {

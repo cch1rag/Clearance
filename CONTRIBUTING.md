@@ -37,7 +37,19 @@ cd Clearance
 open Clearance.xcodeproj
 ```
 
-Press **⌘R** to build and run. There are no external dependencies to install.
+Press **⌘R** to build and run. There are no external runtime dependencies to install.
+
+If you change `project.yml`, regenerate the Xcode project before committing:
+
+```bash
+xcodegen generate
+```
+
+Install XcodeGen only if you need to regenerate the project:
+
+```bash
+brew install xcodegen
+```
 
 ## Debugging the WebView
 

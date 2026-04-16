@@ -15,7 +15,7 @@ Email **`ch1rag@outlook.in`** with a description of the issue. I will acknowledg
 - Logic that modifies TCC database entries
 - JavaScript injection surface in the WKWebView layer
 - Any scenario where user data (file contents, database values) could be exposed or transmitted unintentionally
-- Unexpected network behavior related to `sql.js` and its WASM file loading from `cdnjs.cloudflare.com` on first use
+- Any unexpected outbound network behavior from the app or its bundled web content
 
 **Out of scope:**
 
@@ -28,4 +28,4 @@ Email **`ch1rag@outlook.in`** with a description of the issue. I will acknowledg
 
 Clearance always operates on a user-provided copy of the TCC database. It does not request elevated privileges, does not access `/var/db/TCC`, and does not modify any file the user has not explicitly opened.
 
-Clearance may fetch `sql.js` and its WASM file from `cdnjs.cloudflare.com` on first use if not already cached by the system WebView; subsequent loads are local. Other than that dependency loading path, the app does not use analytics, accounts, or a backend service.
+Clearance bundles `sql.js` 1.10.3 and its WASM file locally. It does not require internet access to open or edit databases, and it does not use analytics, accounts, or a backend service.
