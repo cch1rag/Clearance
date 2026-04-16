@@ -211,7 +211,7 @@ td.app-col{text-align:left;padding:5px 14px;font-family:var(--mono);font-size:10
 <!-- Drop screen -->
 <div id="drop-screen" style="display:none">
   <div class="drop-top-bar">
-    <div class="drop-eyebrow">Clearance // Chirag Chopra</div>
+    <div class="drop-eyebrow">Clearance // Audit App Permissions</div>
     <div id="theme-switcher-drop" style="display:flex;background:var(--sf2);border:1px solid var(--bd2);border-radius:8px;padding:3px;gap:2px">
       <button class="theme-tab" data-t="auto">Auto</button>
       <button class="theme-tab" data-t="light">Light</button>
@@ -229,7 +229,7 @@ td.app-col{text-align:left;padding:5px 14px;font-family:var(--mono);font-size:10
   </div>
   <div class="drop-or">or</div>
   <span class="drop-browse" onclick="document.getElementById('file-input').click()">browse for file</span>
-  <p class="drop-notice">Everything runs locally. Your data is never uploaded anywhere. The modified file downloads as a separate copy — your original is never overwritten.</p>
+  <p class="drop-notice">The modified file downloads as a separate copy — your original is never overwritten.</p>
   <input type="file" id="file-input" accept=".db">
 </div>
 
@@ -238,12 +238,12 @@ td.app-col{text-align:left;padding:5px 14px;font-family:var(--mono);font-size:10
   <div class="hdr">
     <div class="hdr-title">TCC Permission Audit</div>
     <div class="hdr-meta" id="hdr-meta"></div>
+    <div class="hdr-back" onclick="resetApp()">← Load new file</div>
     <div id="theme-switcher">
       <button class="theme-tab" data-t="auto">Auto</button>
       <button class="theme-tab" data-t="light">Light</button>
       <button class="theme-tab" data-t="dark">Dark</button>
     </div>
-    <div class="hdr-back" onclick="resetApp()">← Load new file</div>
   </div>
   <div class="stats-bar" id="stats-bar"></div>
   <div class="controls">
