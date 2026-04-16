@@ -1,4 +1,5 @@
-# Clearance
+# Clearance 
+Review your Mac apps' privacy permissions, including the ones you don't know about.
 
 ![light mode screenshot](Screenshots/Clearance_Modified_Light.png)
 
@@ -50,7 +51,7 @@ Clearance lets you open that database, browse every permission row in a searchab
 
 #### First launch warning
 
-On first launch, macOS may show a warning that the app is dangerous, with **Move to Trash** or **Done**. Click **Done**, then go to **System Settings → Privacy & Security** and click **Open Anyway**.
+On first launch, macOS may display a warning that the app is dangerous, with options to **Move to Trash** or **Done**. Click **Done**, then go to **System Settings → Privacy & Security** and click **Open Anyway**.
 
 If no release is published yet, use Option B.
 
