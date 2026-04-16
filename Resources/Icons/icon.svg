@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Background: dark teal -->
+  <rect width="1024" height="1024" fill="#1A7A6E"/>
+
+  <!-- Shield outline: off-white stroke, no fill, centered -->
+  <!-- Shape: flat top, straight sides tapering to point at bottom -->
+  <!-- Top-left (168,140) → top-right (856,140) → lower-right (856,580) → point (512,884) → lower-left (168,580) → close -->
+  <path d="M 512 884
+           L 168 580
+           L 168 140
+           L 856 140
+           L 856 580
+           Z"
+        fill="none"
+        stroke="#E2E0D8"
+        stroke-width="44"
+        stroke-linejoin="round"
+        stroke-linecap="round"/>
+
+  <!-- Horizontal scan line: cuts through shield at roughly 45% from top -->
+  <!-- At y=400 the shield is at full width (168–856) -->
+  <!-- Inset slightly from the stroke edges for a clean interior look -->
+  <line x1="216" y1="400" x2="808" y2="400"
+        stroke="#E2E0D8"
+        stroke-width="44"
+        stroke-linecap="round"/>
+
+  <!-- Small accent dots on the scan line for "data scan" feel -->
+  <circle cx="310" cy="400" r="22" fill="#E2E0D8"/>
+  <circle cx="512" cy="400" r="22" fill="#E2E0D8"/>
+  <circle cx="714" cy="400" r="22" fill="#E2E0D8"/>
+</svg>
