@@ -46,7 +46,11 @@ Clearance lets you open that database, browse every permission row in a searchab
 1. Go to the [latest release](https://github.com/cch1rag/Clearance/releases/latest)
 2. Download the latest macOS release asset, if one is available
 3. Unzip it and drag `Clearance.app` into `/Applications`
-4. If macOS warns on first launch, right-click the app and choose **Open**
+4. Launch the app from `/Applications`
+
+#### First launch warning
+
+On first launch, macOS may show a warning that the app is dangerous, with **Move to Trash** or **Done**. Click **Done**, then go to **System Settings → Privacy & Security** and click **Open Anyway**.
 
 If no release is published yet, use Option B.
 

@@ -68,15 +68,6 @@ DerivedData/
 *.xcuserstate
 build/
 
-# Project-internal guidance files (kept local, not public)
-Docs/
-CLAUDE.md
-
-.claude/
-
-# Commander app config
-.commander/
-
 # Additional Xcode artifacts
 *.moved-aside
 *.xccheckout
@@ -91,6 +82,3 @@ CLAUDE.md
 
 # CocoaPods
 Pods/
-
-# RepoPrompt oracle exports
-prompt-exports/
