@@ -68,6 +68,10 @@ DerivedData/
 *.xcuserstate
 build/
 
+# Project-internal guidance files (kept local, not public)
+Docs/
+CLAUDE.md
+
 # Commander app config
 .commander/
 
