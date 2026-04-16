@@ -6,7 +6,7 @@ Review your Mac apps' privacy permissions, including the ones you don't know abo
 [![macOS 12+](https://img.shields.io/badge/macOS-12%2B-blue)](https://www.apple.com/macos/)
 [![Swift](https://img.shields.io/badge/Swift-5.9-orange?logo=swift)](https://swift.org)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Latest release](https://img.shields.io/github/v/release/cch1rag/Clearance)](https://github.com/cch1rag/Clearance/releases/latest)
+[![Latest release](https://img.shields.io/github/v/tag/cch1rag/Clearance?label=latest%20release&sort=semver)](https://github.com/cch1rag/Clearance/releases/latest)
 
 A native macOS privacy manager for reading and editing app permissions stored in Apple's TCC (Transparency, Consent, and Control) database. Local-first, no telemetry, and no cloud sync.
 
