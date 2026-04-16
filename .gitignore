@@ -91,3 +91,6 @@ CLAUDE.md
 
 # CocoaPods
 Pods/
+
+# RepoPrompt oracle exports
+prompt-exports/
