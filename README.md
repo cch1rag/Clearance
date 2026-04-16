@@ -1,6 +1,6 @@
 # Clearance
 
-![dark mode screenshot](Screenshots/dark-mode.png)
+![light mode screenshot](Screenshots/light-mode.png)
 
 [![macOS 12+](https://img.shields.io/badge/macOS-12%2B-blue)](https://www.apple.com/macos/)
 [![Swift](https://img.shields.io/badge/Swift-5.9-orange?logo=swift)](https://swift.org)
