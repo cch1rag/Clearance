@@ -4,7 +4,7 @@
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Email **chopra.cc1@gmail.com** with a description of the issue. I will acknowledge within 72 hours and aim to release a patch within 14 days.
+Email **`ch1rag[at]outlook[dot]in`** with a description of the issue. I will acknowledge within 72 hours and aim to release a patch within 14 days.
 
 ---
 
