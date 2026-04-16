@@ -64,7 +64,7 @@ cd Clearance
 open Clearance.xcodeproj
 ```
 
-Press **⌘R** to build and run. No dependencies to install.
+Press **⌘R** to build and run. No dependencies are required for a normal build. If you edit `project.yml`, regenerate `Clearance.xcodeproj` first with `xcodegen generate`.
 
 ---
 
@@ -96,7 +96,7 @@ Press **⌘R** to build and run. No dependencies to install.
 
 Clearance operates on files you explicitly choose on your Mac. It does not upload databases, use analytics, require an account, or depend on a backend service.
 
-Clearance may fetch [sql.js](https://github.com/sql-js/sql.js) and its WASM file from `cdnjs.cloudflare.com` on first use if not already cached by the system WebView; subsequent loads are local.
+Clearance bundles [sql.js](https://github.com/sql-js/sql.js) 1.10.3 and its WASM file inside the app, so the shipped app does not need internet access to open or edit databases.
 
 Clearance never reads your actual TCC database automatically — you choose which file to open.
 
@@ -106,7 +106,7 @@ Clearance never reads your actual TCC database automatically — you choose whic
 
 - Swift and AppKit for the native macOS shell
 - WKWebView to host the interactive table UI
-- [sql.js](https://github.com/sql-js/sql.js) (SQLite compiled to WebAssembly) for parsing `.db` files in the web layer
+- Bundled [sql.js](https://github.com/sql-js/sql.js) 1.10.3 (SQLite compiled to WebAssembly) for parsing `.db` files in the web layer
 - Vanilla HTML, CSS, and JavaScript — no frontend frameworks
 
 ---
