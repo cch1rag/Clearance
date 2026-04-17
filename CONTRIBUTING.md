@@ -45,6 +45,8 @@ If you change `project.yml`, regenerate the Xcode project before committing:
 xcodegen generate
 ```
 
+Do not commit Xcode user-specific state such as `xcuserdata/` or `*.xcuserstate`. Keep the shared `Clearance` scheme tracked so contributors can build the project consistently from Xcode or `xcodebuild`.
+
 Install XcodeGen only if you need to regenerate the project:
 
 ```bash
