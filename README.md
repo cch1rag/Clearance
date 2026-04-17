@@ -8,7 +8,7 @@ Review your Mac apps' privacy permissions, including the ones you don't know abo
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Latest release](https://img.shields.io/github/v/tag/cch1rag/Clearance?label=latest%20release&sort=semver)](https://github.com/cch1rag/Clearance/releases/latest)
 
-A native macOS privacy manager for reading and editing app permissions stored in Apple's TCC (Transparency, Consent, and Control) database. Local-first, no telemetry, and no cloud sync.
+A local-first macOS utility for viewing and editing TCC.db app privacy permissions.Open a copy of Apple’s Transparency, Consent, and Control database, inspect every row, and make offline changes without touching the live system file.
 
 > **Safety first:** Always work on a copy of `TCC.db`, not the live database.
 
