@@ -35,7 +35,7 @@ Clearance lets you open that database, browse every permission row in a searchab
 - Revoke or grant access by modifying the `auth_value` column (0 = deny, 2 = allow)
 - Filter by service (`kTCCService`), app bundle ID, or access type
 - Dark and light mode, follows system appearance automatically
-- Export the full table as a CSV file
+- Export a modified `.db` copy with your changes applied
 - Local-first: no analytics, no accounts, and no backend service
 
 ---
