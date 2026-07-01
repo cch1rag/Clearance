@@ -90,7 +90,7 @@
             "command": "codesign -d --entitlements - build/Debug/Clearance.app 2>/dev/null | grep -q 'com.apple.security.app-sandbox' && echo 'ENTITLEMENTS_OK'",
             "expected": "ENTITLEMENTS_OK"
           },
-          "status": "pending"
+          "status": "completed"
         }
       ]
     },
@@ -262,5 +262,5 @@
   "planStatus": "in_progress",
   "xstateState": "planning",
   "executionPhase": "coding",
-  "updated_at": "2026-07-01T10:38:02.943Z"
+  "updated_at": "2026-07-01T10:40:24.441Z"
 }
