@@ -28,6 +28,7 @@
 		95A8E5CEE3D8E515349FD663 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		A71628B65C1C3DAB60DCDD83 /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		A8C9A12655894B5A394F64BD /* DownloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadHandler.swift; sourceTree = "<group>"; };
+		C94001D70497308BAC165C50 /* Clearance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clearance.entitlements; sourceTree = "<group>"; };
 		CD94D4AC9A613370FE974BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8A71B703033EDA65B933F2F /* tcc_audit_app.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = tcc_audit_app.html; sourceTree = "<group>"; };
 		FA4D3B59469F92B70AD6355F /* sql-wasm.wasm */ = {isa = PBXFileReference; path = "sql-wasm.wasm"; sourceTree = "<group>"; };
@@ -55,6 +56,7 @@
 			children = (
 				A71628B65C1C3DAB60DCDD83 /* AboutWindowController.swift */,
 				CD94D4AC9A613370FE974BD3 /* AppDelegate.swift */,
+				C94001D70497308BAC165C50 /* Clearance.entitlements */,
 				A8C9A12655894B5A394F64BD /* DownloadHandler.swift */,
 				11DEFC49C8568C7C56DE7211 /* main.swift */,
 				0B7509B33190DF36A91F1680 /* MainWindowController.swift */,
@@ -165,6 +167,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Clearance/Clearance.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -187,6 +190,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Clearance/Clearance.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
