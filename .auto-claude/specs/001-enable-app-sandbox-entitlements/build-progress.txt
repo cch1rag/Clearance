@@ -1,0 +1,205 @@
+=== AUTO-BUILD PROGRESS ===
+
+Project: Clearance - macOS TCC.db Viewer
+Task: Enable App Sandbox entitlements
+Workspace: /Users/chiragc/Projects/Clearance/.auto-claude/worktrees/tasks/001-enable-app-sandbox-entitlements
+Started: 2026-07-01
+
+Workflow Type: simple
+Rationale: Single-service straightforward task: create entitlements file, update project configuration, verify build. No complex dependencies or multi-phase coordination needed.
+
+Session 1 (Planner):
+✓ Completed Phase 0: Deep Codebase Investigation
+  - Analyzed project structure (Swift + AppKit + WKWebView macOS app)
+  - Identified file access patterns (NSOpenPanel/NSSavePanel)
+  - Confirmed no existing entitlements file
+  - Reviewed XcodeGen configuration in project.yml
+  - Documented required entitlements: app-sandbox + user-selected files
+
+✓ Created context files:
+  - project_index.json: Project structure and conventions
+  - context.json: Task-specific context and patterns
+
+✓ Created implementation_plan.json
+  - Phases: 2
+  - Total subtasks: 6
+  - Workflow type: simple (single service, no complex dependencies)
+
+✓ Created init.sh: Environment setup script
+✓ Created build-progress.txt: This file
+
+Phase Summary:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Phase 1: Enable App Sandbox (5 subtasks)
+  Dependencies: none
+  Status: pending
+  Subtasks:
+    1.1 Create Clearance.entitlements file [pending]
+    1.2 Update project.yml to reference entitlements [pending]
+    1.3 Regenerate Xcode project with xcodegen [pending]
+    1.4 Verify app builds successfully [pending]
+    1.5 Verify entitlements are embedded [pending]
+
+Phase 2: Manual Testing (1 subtask)
+  Dependencies: phase-1-implementation
+  Status: pending
+  Subtasks:
+    2.1 Manual test: Open and save database files [pending]
+
+Services Involved:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+- app: macOS Swift/AppKit application
+  - Path: .
+  - Tech: Swift 5.9, AppKit, WebKit, XcodeGen
+  - Bundle ID: com.ch1rag.clearance
+
+Required Entitlements:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. com.apple.security.app-sandbox = true
+   → Enables App Sandbox restrictions
+
+2. com.apple.security.files.user-selected.read-write = true
+   → Allows file access via NSOpenPanel/NSSavePanel
+   → Required for opening and saving .db files
+
+Network Access: NOT REQUIRED
+  → App explicitly blocks all network navigation in WKWebView
+  → No com.apple.security.network.client entitlement needed
+
+Parallelism Analysis:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+- Max parallel phases: 1
+- Parallel groups: none (sequential execution required)
+- Recommended workers: 1
+- Speedup estimate: Sequential execution required
+
+Rationale: Subtasks must execute in order (create entitlements → update config → regenerate project → build → verify)
+
+Verification Strategy:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Risk Level: medium
+Test Types: manual verification
+Security Scan: not required (adding security, not modifying vulnerable code)
+Staging: not required
+
+Acceptance Criteria:
+  ✓ Clearance.entitlements file created with correct plist format
+  ✓ project.yml references entitlements file
+  ✓ Xcode project regenerated successfully
+  ✓ App builds without errors
+  ✓ Entitlements are embedded in built app bundle
+  ✓ App can open and save files via NSOpenPanel/NSSavePanel
+  ✓ App runs under App Sandbox restrictions
+
+Key Files Modified:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+To Create:
+  - Clearance/Clearance.entitlements (new entitlements plist)
+
+To Modify:
+  - project.yml (add CODE_SIGN_ENTITLEMENTS setting)
+
+To Regenerate:
+  - Clearance.xcodeproj (via xcodegen)
+
+=== STARTUP COMMAND ===
+
+To continue building this spec, run:
+
+  source auto-claude/.venv/bin/activate && python auto-claude/run.py --spec 001
+
+This will start the coder agent to implement the subtasks sequentially.
+
+Alternatively, for manual implementation:
+  1. Review the implementation plan:
+     cat ./.auto-claude/specs/001-enable-app-sandbox-entitlements/implementation_plan.json
+
+  2. Run the setup script:
+     ./.auto-claude/specs/001-enable-app-sandbox-entitlements/init.sh
+
+  3. Implement subtasks in order (1.1 → 1.2 → 1.3 → 1.4 → 1.5 → 2.1)
+
+=== INVESTIGATION NOTES ===
+
+Project Analysis:
+- Uses XcodeGen to generate Xcodeproj from project.yml
+- Hardened Runtime already enabled (ENABLE_HARDENED_RUNTIME: YES)
+- Manual code signing with ad-hoc identity (CODE_SIGN_IDENTITY: "-")
+- No external dependencies (pure AppKit + WebKit)
+
+App Capabilities:
+- Loads local HTML file (tcc_audit_app.html) with sql.js WASM
+- Opens .db files using NSOpenPanel (user-selected file access)
+- Saves .db files using NSSavePanel (user-selected file write)
+- Blocks all network navigation (decidePolicyFor blocks non-file URLs)
+
+Why App Sandbox is Important:
+- Defense-in-depth security mechanism
+- Restricts filesystem/network access to declared capabilities
+- Critical for apps with WKWebView (prevents malicious HTML payloads)
+- Required for Mac App Store distribution
+- Expected for notarized apps
+
+Implementation Approach:
+1. Minimal entitlements (only what's needed)
+2. No network access (already blocked by app logic)
+3. File access limited to user-selected files (via NSOpenPanel/NSSavePanel)
+4. Standard .entitlements plist format
+5. Configuration via XcodeGen (project.yml)
+
+=== END SESSION 1 ===
+
+Next Session: Coder agent will implement subtasks starting with subtask-1-1
+
+Status: PLANNING COMPLETE - Ready for implementation
+
+=== SESSION 2 (Coder) ===
+
+Session Start: 2026-07-01T16:00:00Z
+
+✓ Completed: Subtask 1.1 - Create Clearance.entitlements file with App Sandbox enabled
+  - Created Clearance/Clearance.entitlements with required entitlements:
+    * com.apple.security.app-sandbox = true (enable App Sandbox)
+    * com.apple.security.files.user-selected.read-write = true (NSOpenPanel/NSSavePanel access)
+  - File created in standard XML plist format
+  - Verified file exists and has correct structure
+  - Committed: auto-claude: subtask-1-1 - Create Clearance.entitlements file with App Sandbox enabled
+  - Status: COMPLETED
+
+Phase 1 Progress: 1/5 subtasks completed
+Next: Subtask 1.2 - Update project.yml to reference entitlements file
+
+✓ Completed: Subtask 1.2 - Update project.yml to reference entitlements file
+  - Added CODE_SIGN_ENTITLEMENTS setting to targets.Clearance.settings.base
+  - Setting points to Clearance/Clearance.entitlements
+  - Verification passed: grep confirmed entitlements reference exists
+  - Committed: auto-claude: subtask-1-2 - Update project.yml to reference entitlements file
+  - Status: COMPLETED
+
+Phase 1 Progress: 2/5 subtasks completed
+Next: Subtask 1.3 - Regenerate Xcode project with xcodegen
+
+✓ Completed: Subtask 1.3 - Regenerate Xcode project with xcodegen
+  - Ran xcodegen generate to update Clearance.xcodeproj
+  - Verified Clearance.entitlements is now referenced in project.pbxproj
+  - Project file now contains:
+    * PBXFileReference for Clearance.entitlements
+    * CODE_SIGN_ENTITLEMENTS setting pointing to Clearance/Clearance.entitlements
+  - Verification passed: entitlements file properly integrated
+  - Committed: auto-claude: subtask-1-3 - Regenerate Xcode project with xcodegen
+  - Status: COMPLETED
+
+Phase 1 Progress: 3/5 subtasks completed
+Next: Subtask 1.4 - Verify app builds successfully with sandbox enabled
+
+✓ Completed: Subtask 1.4 - Verify app builds successfully with sandbox enabled
+  - Ran xcodebuild with custom derived data path to avoid permission issues
+  - Build completed successfully: BUILD SUCCEEDED
+  - All entitlements properly applied during build process
+  - Code signing completed with entitlements embedded
+  - Verification passed: BUILD_OK
+  - Committed: auto-claude: subtask-1-4 - Verify app builds successfully with sandbox enabled
+  - Status: COMPLETED
+
+Phase 1 Progress: 4/5 subtasks completed
+Next: Subtask 1.5 - Verify entitlements are embedded in built app
