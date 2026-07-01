@@ -219,3 +219,51 @@ Phase 1 Progress: 5/5 subtasks completed
 Phase 1 Status: COMPLETED ✓
 
 Next: Phase 2 - Manual Testing (subtask 2.1)
+
+✓ Started: Subtask 2.1 - Manual test: Open and save database files
+  - Created comprehensive manual testing checklist:
+    * File: ./.auto-claude/specs/001-enable-app-sandbox-entitlements/manual-test-checklist.md
+  - Checklist includes 5 detailed test cases:
+    1. Launch Application (verify app starts under App Sandbox)
+    2. Open Database File (verify NSOpenPanel + user-selected file access)
+    3. Save Database File (verify NSSavePanel + user-selected file write)
+    4. Verify Sandbox Network Restrictions (confirm no network access)
+    5. Verify Sandbox File Access Restrictions (confirm only user-selected files accessible)
+  - Checklist provides:
+    * Step-by-step testing instructions
+    * Expected results for each test case
+    * Space to document actual results
+    * Console.app monitoring guidance
+    * Sign-off section for QA approval
+
+MANUAL TESTING INSTRUCTIONS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+This subtask requires human interaction with the macOS GUI app.
+Automated testing is not possible in CLI-only environment.
+
+To Complete Manual Testing:
+1. Open manual-test-checklist.md in this directory
+2. Launch Clearance.app from: ./build/DerivedData/Build/Products/Debug/
+3. Follow each test case in the checklist
+4. Document results and observations
+5. Check Console.app for any sandbox violations
+6. Sign off on the checklist when all tests pass
+
+Quick Launch Commands:
+  # From project root:
+  open ./build/DerivedData/Build/Products/Debug/Clearance.app
+  
+  # Monitor console for sandbox messages:
+  log stream --predicate 'process == "Clearance"' --level debug
+
+Expected Outcomes:
+  ✓ App launches successfully
+  ✓ NSOpenPanel opens when selecting database file
+  ✓ Database loads without permission errors
+  ✓ NSSavePanel opens when saving file
+  ✓ File saves successfully without errors
+  ✓ No unauthorized file access (sandbox blocks it)
+  ✓ No network access (sandbox blocks it)
+
+Status: MANUAL TESTING REQUIRED - Checklist created and ready for QA
+
